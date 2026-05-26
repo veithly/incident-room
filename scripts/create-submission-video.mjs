@@ -16,6 +16,8 @@ const OUT = {
 };
 
 const ffmpeg = ffmpegInstaller.path;
+const WIDTH = 1920;
+const HEIGHT = 1080;
 const videoUrl = 'https://github.com/veithly/incident-room/releases/download/v0.0.3-demo/pitch-demo-combined-final.mp4';
 const repoUrl = 'https://github.com/veithly/incident-room';
 const devvitUrl = 'https://developers.reddit.com/apps/incidentrm260526';
@@ -27,120 +29,68 @@ const narrationInstruction =
 
 const chapters = [
   {
-    id: '01-command-room',
+    id: '01-hook',
     type: 'still',
     source: 'pitch/illustrations/slide-01-command-room.png',
     align: 'right',
-    kicker: 'The moderator problem',
-    title: 'A live subreddit incident should not become five private tabs',
-    body:
-      'Reports, links, queue notes, and chat context collapse into one shared room before duplicate review takes over.',
-    stat: 'One shared command room',
+    minSeconds: 6,
+    kicker: 'Moderator incident room',
+    title: 'One shared post before the team splits across tabs',
+    body: 'Reports, watch terms, claims, and the decision trail meet inside Reddit while the incident is still moving.',
+    stat: 'Built for the first minute',
     narration:
-      'A subreddit incident does not wait for a meeting. A live sports thread, a game launch, or a finance discussion can turn hostile while moderators are still comparing notes in separate tabs. Incident Room turns that spike into one shared room with evidence, claims, rules, and a bounded AI briefing in the same place.',
+      'Live incidents fragment moderation in the first minute. Incident Room gives the team one shared command post inside Reddit.',
   },
   {
-    id: '02-product-frame',
+    id: '02-product',
     type: 'still',
     source: 'docs/screenshots/hero.png',
     align: 'left',
-    kicker: 'Product first',
-    title: 'The app opens inside Reddit as a real Devvit command surface',
-    body:
-      'The judge sees the actual product surface, not only a pitch slide: status, score, candidate room, and moderator actions.',
-    stat: 'Devvit custom post',
+    minSeconds: 6,
+    kicker: 'Real Devvit surface',
+    title: 'Declare the incident, then work from the same room',
+    body: 'The custom post shows status, score, evidence, active claims, briefing state, and the next moderator action.',
+    stat: 'No external dashboard',
     narration:
-      'The app is a Devvit custom post, not a separate dashboard pretending to be a moderation tool. The first screen shows the incident state, score, evidence, and next moderator action where the team already works.',
+      'A moderator declares the incident. The room scores evidence, shows claims, and keeps the next action visible.',
   },
   {
-    id: '03-live-demo',
+    id: '03-demo',
     type: 'demo',
     source: 'pitch/recording/live-demo.mp4',
+    minSeconds: 22,
     kicker: 'Live demo',
     title: 'Declare, claim, brief, preview, confirm',
-    body:
-      'This section is recorded from the running React app. It clicks the same flow covered by Playwright.',
+    body: 'Recorded from the running React app, using the same path covered by Playwright desktop and mobile tests.',
     stat: 'Actual UI interaction',
     narration:
-      'Here is the working path. The moderator declares the incident, claims the first high risk evidence item, opens the briefing, previews the action pack, confirms the pack, and checks the after action record. The AI briefing explains the pattern and caveats. It never removes, locks, bans, or mutates Reddit content.',
+      'Here is the real flow: declare, claim evidence, open the briefing, preview an action pack, confirm it, then read the after-action record.',
   },
   {
-    id: '04-rules-ai',
+    id: '04-rules-step',
     type: 'still',
     source: 'pitch/illustrations/slide-04-rules-ai.png',
     align: 'left',
+    minSeconds: 8,
     kicker: 'Rules plus AI',
-    title: 'Rules score evidence; Step AI explains what the room is seeing',
-    body:
-      'Watch terms, reports, domains, and account age stay deterministic. Step 3.6 writes the briefing after a moderator opens the room.',
-    stat: 'AI is briefing only',
+    title: 'Rules score; Step 3.6 briefs; humans decide',
+    body: 'Watch terms, reports, domains, and account age stay deterministic. The model explains the pattern and caveats only.',
+    stat: 'AI cannot mutate Reddit',
     narration:
-      'The rules do the scoring because those signals need to be inspectable under pressure. Step three point six then writes a compact incident briefing: likely pattern, recommended action pack, and caveats. The model is useful because it is constrained.',
+      'Rules do the scoring. Step three point six writes the briefing only; it cannot mutate Reddit content or bypass moderator review.',
   },
   {
-    id: '05-architecture',
+    id: '05-proof',
     type: 'still',
     source: 'docs/screenshots/architecture.png',
     align: 'right',
-    kicker: 'Technical proof',
-    title: 'Devvit events, Redis room state, Reddit permissions, and server-side AI',
-    body:
-      'Secrets stay server-side. Timeline, claims, action packs, and after-action metrics persist in Devvit Redis.',
-    stat: 'Reviewable boundary',
-    narration:
-      'Under the hood, Devvit triggers ingest posts, comments, reports, and mod actions. Redis stores the timeline, claims, briefing state, and after action metrics. The OpenAI compatible StepFun endpoint runs server side with a Devvit secret.',
-  },
-  {
-    id: '06-mobile-proof',
-    type: 'still',
-    source: 'docs/screenshots/mobile.png',
-    align: 'left',
-    fit: 'contain',
-    kicker: 'Phone check',
-    title: 'A QR scan does not open a shrunken desktop dashboard',
-    body:
-      'The phone layout keeps the incident state and primary action readable for judges and moderators away from the desk.',
-    stat: 'Mobile first run',
-    narration:
-      'The mobile view matters for judging and for real moderation. A moderator can understand the incident state, briefing, and next review action from a phone scan without hunting through a desktop layout.',
-  },
-  {
-    id: '07-proof-links',
-    type: 'still',
-    source: 'docs/screenshots/flow.png',
-    align: 'right',
+    minSeconds: 7,
     kicker: 'Submission proof',
-    title: 'Built, tested, uploaded, and submitted for Devvit review',
-    body:
-      'Repo, demo video, Step AI smoke test, Playwright flow, Devvit settings, and review request are all linked in the submission package.',
-    stat: 'Repo: github.com/veithly/incident-room',
+    title: 'Repo, review app, tests, and video are ready to inspect',
+    body: 'The submission links the Devvit app, playtest subreddit, public repo, Step AI smoke test, and Playwright evidence.',
+    stat: 'github.com/veithly/incident-room',
     narration:
-      'The repo contains the implementation, tests, bilingual product docs, UI evidence, legal pages, and this repeatable video renderer. Devvit version zero point zero point three has been submitted for review, and the demo video is published as a release asset.',
-  },
-  {
-    id: '08-submit-ready',
-    type: 'still',
-    source: 'pitch/illustrations/slide-01-command-room.png',
-    align: 'right',
-    kicker: 'Judge path',
-    title: 'The reviewer can inspect the product, code, video, and moderation boundary',
-    body:
-      'Incident Room is packaged around the exact things a judge can verify: app listing, playtest subreddit, repo, demo, tests, and AI smoke evidence.',
-    stat: 'Ready for Devpost fields',
-    narration:
-      'For the final submission, the judge path is straightforward. The Devvit app listing shows the installable mod tool and review status. The playtest subreddit shows the Reddit context. The repository shows the implementation and tests. The video shows the product and the live flow. Most importantly, the moderation boundary is clear: the AI helps the team understand the room, but humans still make the enforcement decision.',
-  },
-  {
-    id: '09-outro',
-    type: 'still',
-    source: 'docs/screenshots/hero.png',
-    align: 'left',
-    kicker: 'Try it',
-    title: 'Open the room, declare the incident, and watch the handoff stay readable',
-    body: 'The first click shows the whole idea: shared context before the incident becomes a private scramble.',
-    stat: 'Incident Room',
-    narration:
-      'That is the first action worth trying: open the room, declare the incident, and watch the handoff stay readable.',
+      'The repo, Devvit review app, tests, and video are linked in the submission. The first action is ready to inspect.',
   },
 ];
 
@@ -437,6 +387,22 @@ async function ensureDirs() {
   await fs.mkdir(path.join(OUT.polish, 'assets'), { recursive: true });
 }
 
+async function cleanGeneratedPreviews() {
+  const deckEntries = await fs.readdir(OUT.deck, { withFileTypes: true }).catch(() => []);
+  await Promise.all(
+    deckEntries
+      .filter((entry) => entry.isFile() && entry.name.endsWith('.png'))
+      .map((entry) => fs.rm(path.join(OUT.deck, entry.name), { force: true }))
+  );
+
+  const polishEntries = await fs.readdir(OUT.polish, { withFileTypes: true }).catch(() => []);
+  await Promise.all(
+    polishEntries
+      .filter((entry) => entry.isFile() && entry.name.endsWith('.html'))
+      .map((entry) => fs.rm(path.join(OUT.polish, entry.name), { force: true }))
+  );
+}
+
 function ensureBuild() {
   if (existsSync(path.join(ROOT, 'dist', 'client', 'game.html'))) return;
   const result = spawnSync(process.platform === 'win32' ? 'npm.cmd' : 'npm', ['run', 'build'], {
@@ -452,29 +418,29 @@ async function recordLiveDemo() {
   ensureBuild();
   const port = 4319;
   const server = await startDemoServer(port);
-  const browser = await chromium.launch({ args: ['--window-size=1920,1200', '--force-device-scale-factor=1'] });
+  const browser = await chromium.launch({ args: [`--window-size=${WIDTH},${HEIGHT}`, '--force-device-scale-factor=1'] });
   const context = await browser.newContext({
-    viewport: { width: 1920, height: 1200 },
+    viewport: { width: WIDTH, height: HEIGHT },
     deviceScaleFactor: 1,
-    recordVideo: { dir: OUT.recording, size: { width: 1920, height: 1200 } },
+    recordVideo: { dir: OUT.recording, size: { width: WIDTH, height: HEIGHT } },
   });
   const page = await context.newPage();
 
   try {
     await page.goto(`http://127.0.0.1:${port}/game.html`, { waitUntil: 'networkidle' });
-    await page.waitForTimeout(3500);
+    await page.waitForTimeout(1500);
     await page.getByRole('button', { name: 'Declare incident' }).click();
-    await page.waitForTimeout(6500);
+    await page.waitForTimeout(2500);
     await page.getByRole('button', { name: 'Claim' }).first().click();
-    await page.waitForTimeout(5000);
+    await page.waitForTimeout(2000);
     await page.getByRole('button', { name: 'Briefing' }).click();
-    await page.waitForTimeout(8000);
+    await page.waitForTimeout(2600);
     await page.getByRole('button', { name: 'New preview' }).click();
-    await page.waitForTimeout(4500);
+    await page.waitForTimeout(1800);
     await page.getByRole('button', { name: 'Confirm pack' }).first().click();
-    await page.waitForTimeout(6500);
+    await page.waitForTimeout(2200);
     await page.getByRole('button', { name: 'After action' }).click();
-    await page.waitForTimeout(7000);
+    await page.waitForTimeout(2600);
   } finally {
     const video = page.video();
     await context.close();
@@ -488,7 +454,7 @@ async function recordLiveDemo() {
         '-i',
         rawPath,
         '-vf',
-        'scale=1920:1200:force_original_aspect_ratio=increase,crop=1920:1200,format=yuv420p',
+        `scale=${WIDTH}:${HEIGHT}:force_original_aspect_ratio=increase,crop=${WIDTH}:${HEIGHT},format=yuv420p`,
         '-r',
         '30',
         '-c:v',
@@ -529,22 +495,22 @@ function chapterHtml(chapter) {
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      width: 1920px;
-      height: 1200px;
+      width: ${WIDTH}px;
+      height: ${HEIGHT}px;
       overflow: hidden;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: #0d1218;
       color: var(--ink);
     }
-    .stage { position: relative; width: 1920px; height: 1200px; overflow: hidden; background: #0d1218; }
+    .stage { position: relative; width: ${WIDTH}px; height: ${HEIGHT}px; overflow: hidden; background: #0d1218; }
     .plate { position: absolute; inset: 0; overflow: hidden; }
     .plate::after {
       content: "";
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(90deg, rgba(7, 10, 15, 0.55), rgba(7, 10, 15, 0.08) 46%, rgba(7, 10, 15, 0.62)),
-        linear-gradient(180deg, rgba(7, 10, 15, 0.18), rgba(7, 10, 15, 0.34));
+        linear-gradient(90deg, rgba(7, 10, 15, 0.62), rgba(7, 10, 15, 0.08) 46%, rgba(7, 10, 15, 0.66)),
+        linear-gradient(180deg, rgba(7, 10, 15, 0.1), rgba(7, 10, 15, 0.28));
       pointer-events: none;
     }
     .plate-image { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -558,39 +524,39 @@ function chapterHtml(chapter) {
     .brand {
       position: absolute;
       z-index: 3;
-      top: 58px;
-      left: 72px;
+      top: 44px;
+      left: 56px;
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 16px;
       font-weight: 760;
-      font-size: 27px;
+      font-size: 25px;
       color: white;
     }
-    .mark { width: 48px; height: 48px; background: var(--orange); display: grid; place-items: center; font-weight: 900; border-radius: 8px; }
+    .mark { width: 46px; height: 46px; background: var(--orange); display: grid; place-items: center; font-weight: 900; border-radius: 8px; }
     .copy {
       position: absolute;
       z-index: 2;
-      top: 142px;
-      width: 720px;
-      padding: 42px 44px;
+      top: 128px;
+      width: 650px;
+      padding: 34px 38px;
       border: 1px solid var(--line);
       background: var(--panel);
       backdrop-filter: blur(16px);
       box-shadow: 0 28px 96px rgba(0, 0, 0, 0.42);
     }
-    .copy.left { left: 72px; }
-    .copy.right { right: 72px; }
-    .kicker { margin: 0 0 22px; color: var(--cyan); text-transform: uppercase; font-size: 24px; letter-spacing: 0.12em; }
-    h1 { margin: 0; font-size: 56px; line-height: 1.04; font-weight: 810; letter-spacing: 0; }
-    .body { margin: 26px 0 0; color: var(--muted); font-size: 28px; line-height: 1.32; }
+    .copy.left { left: 56px; }
+    .copy.right { right: 56px; }
+    .kicker { margin: 0 0 18px; color: var(--cyan); text-transform: uppercase; font-size: 21px; letter-spacing: 0.1em; }
+    h1 { margin: 0; font-size: 47px; line-height: 1.05; font-weight: 810; letter-spacing: 0; }
+    .body { margin: 22px 0 0; color: var(--muted); font-size: 25px; line-height: 1.3; }
     .stat {
-      margin-top: 30px;
-      padding: 22px 24px;
+      margin-top: 26px;
+      padding: 18px 21px;
       border-left: 6px solid var(--orange);
       background: rgba(255, 69, 0, 0.12);
       color: #fff4ee;
-      font-size: 27px;
+      font-size: 24px;
       line-height: 1.16;
       font-weight: 760;
     }
@@ -612,8 +578,8 @@ function chapterHtml(chapter) {
 }
 
 async function renderPlates() {
-  const browser = await chromium.launch({ args: ['--window-size=1920,1200'] });
-  const page = await browser.newPage({ viewport: { width: 1920, height: 1200 }, deviceScaleFactor: 1 });
+  const browser = await chromium.launch({ args: [`--window-size=${WIDTH},${HEIGHT}`] });
+  const page = await browser.newPage({ viewport: { width: WIDTH, height: HEIGHT }, deviceScaleFactor: 1 });
   try {
     for (const chapter of chapters.filter((item) => item.type === 'still')) {
       const html = chapterHtml(chapter);
@@ -711,7 +677,7 @@ async function renderVideo() {
     if (chapter.type === 'demo') {
       const demoPath = path.join(ROOT, chapter.source);
       const demoDuration = probeDurationSeconds(demoPath);
-      const duration = Math.max(audioDuration + 0.35, demoDuration);
+      const duration = Math.max(chapter.minSeconds ?? 0, audioDuration + 0.25);
       const stretch = duration > demoDuration ? (duration / demoDuration).toFixed(5) : '1';
       ffmpegRun(
         [
@@ -723,15 +689,15 @@ async function renderVideo() {
           '-t',
           duration.toFixed(2),
           '-vf',
-          `scale=1920:1200:force_original_aspect_ratio=increase,crop=1920:1200,setpts=${stretch}*PTS,format=yuv420p`,
+          `crop=1440:820:240:42,scale=${WIDTH}:${HEIGHT}:flags=lanczos,setpts=${stretch}*PTS,unsharp=5:5:0.55:5:5:0,eq=contrast=1.04:saturation=1.08,format=yuv420p`,
           '-r',
           '30',
           '-c:v',
           'libx264',
           '-preset',
-          'veryfast',
+          'slow',
           '-crf',
-          '20',
+          '17',
           '-c:a',
           'aac',
           '-b:a',
@@ -743,9 +709,12 @@ async function renderVideo() {
         `render demo segment ${chapter.id}`
       );
       chapter.duration_seconds = Number(duration.toFixed(2));
+      const thumbPath = path.join(OUT.deck, `${chapter.id}.png`);
+      ffmpegRun(['-y', '-ss', '8', '-i', segment, '-frames:v', '1', thumbPath], `render demo thumb ${chapter.id}`);
+      chapter.plate = path.relative(ROOT, thumbPath).replaceAll(path.sep, '/');
     } else {
       const plate = path.join(ROOT, chapter.plate);
-      const duration = Math.max(12, audioDuration + 0.35);
+      const duration = Math.max(chapter.minSeconds ?? 6, audioDuration + 0.25);
       ffmpegRun(
         [
           '-y',
@@ -760,15 +729,15 @@ async function renderVideo() {
           '-t',
           duration.toFixed(2),
           '-vf',
-          'scale=1920:1200:force_original_aspect_ratio=increase,crop=1920:1200,format=yuv420p',
+          `scale=${WIDTH}:${HEIGHT}:force_original_aspect_ratio=increase,crop=${WIDTH}:${HEIGHT},unsharp=5:5:0.45:5:5:0,eq=contrast=1.03:saturation=1.06,format=yuv420p`,
           '-r',
           '30',
           '-c:v',
           'libx264',
           '-preset',
-          'veryfast',
+          'slow',
           '-crf',
-          '20',
+          '17',
           '-c:a',
           'aac',
           '-b:a',
@@ -836,8 +805,8 @@ async function renderVideo() {
 async function writeManifests(video) {
   const manifest = {
     generated_at: new Date().toISOString(),
-    composition: 'combined-pitch-demo-with-live-ui-recording',
-    size: { width: 1920, height: 1200 },
+    composition: 'devpost-under-one-minute-demo',
+    size: { width: WIDTH, height: HEIGHT },
     repo_url: repoUrl,
     devvit_url: devvitUrl,
     demo_video_url: videoUrl,
@@ -884,7 +853,7 @@ async function writeManifests(video) {
     h1 { font-size: 44px; margin: 0 0 12px; }
     .meta { color: #b7b0a2; margin-bottom: 28px; font-size: 18px; }
     .chapter { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 24px; align-items: center; padding: 18px 0; border-top: 1px solid rgba(246, 244, 235, 0.16); }
-    img, video { width: 320px; aspect-ratio: 16 / 10; object-fit: cover; border: 1px solid rgba(246, 244, 235, 0.16); }
+    img, video { width: 320px; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid rgba(246, 244, 235, 0.16); }
     p { margin: 0 0 8px; color: #5eead4; text-transform: uppercase; }
     h2 { margin: 0 0 12px; font-size: 26px; }
     span { color: #ff8a61; }
@@ -892,8 +861,8 @@ async function writeManifests(video) {
 </head>
 <body>
   <main>
-    <h1>Incident Room combined pitch/demo</h1>
-    <div class="meta">Final render: ../recording/pitch-demo-combined-final.mp4 - ${video.duration_seconds}s - 1920x1200 - includes live UI recording</div>
+    <h1>Incident Room Devpost demo</h1>
+    <div class="meta">Final render: ../recording/pitch-demo-combined-final.mp4 - ${video.duration_seconds}s - ${WIDTH}x${HEIGHT} - under-one-minute cut with live UI recording</div>
     ${previewItems}
   </main>
 </body>
@@ -912,6 +881,7 @@ async function writeManifests(video) {
 - Composition preview: \`pitch/polish-combined/index.html\`
 - Live UI recording source: \`pitch/recording/live-demo.mp4\`
 - Duration: ${video.duration_seconds} seconds
+- Format: ${WIDTH}x${HEIGHT}, Devpost under-one-minute cut
 - TTS: StepFun \`${manifest.tts.model}\` voice \`${manifest.tts.voice}\`
 
 The MP4 and audio files are intentionally gitignored. Regenerate them with:
@@ -926,10 +896,14 @@ npm run video:submission
 
 async function main() {
   await ensureDirs();
+  await cleanGeneratedPreviews();
   await recordLiveDemo();
   await renderPlates();
   await synthesizeNarration();
   const video = await renderVideo();
+  if (video.duration_seconds >= 60) {
+    throw new Error(`Devpost cut is too long: ${video.duration_seconds}s. Keep the final demo under 60 seconds.`);
+  }
   await writeManifests(video);
   console.log(JSON.stringify({ ok: true, ...video }, null, 2));
 }

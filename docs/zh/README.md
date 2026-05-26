@@ -90,9 +90,10 @@ npm run test:e2e
 node scripts/capture-mockups.mjs
 node scripts/smoke-ai.mjs
 npm run video:submission
+npm run deck:submission
 ```
 
-Devvit version `0.0.3` 已提交 review。Combined pitch/demo 本地渲染输出为 `pitch/recording/pitch-demo-combined-final.mp4`；媒体文件不进 git，可用 `npm run video:submission` 重新生成。
+Devvit version `0.0.3` 已提交 review。Devpost 版 1 分钟内 demo 本地渲染输出为 `pitch/recording/pitch-demo-combined-final.mp4`；媒体文件不进 git，可用 `npm run video:submission` 重新生成。
 
 ## License
 
