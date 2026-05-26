@@ -62,4 +62,4 @@ The main time saving is not one removed click. It is preventing five moderators 
 - App listing URL: https://developers.reddit.com/apps/incidentrm260526
 - Playtest subreddit: https://www.reddit.com/r/incidentrm260526_dev
 - Public repository URL: https://github.com/veithly/incidentrm260526
-- Demo video URL: pending public upload; local MP4 is ready at `pitch/recording/pitch-demo-combined-final.mp4`.
+- Demo video URL: https://github.com/veithly/incidentrm260526/releases/download/v0.0.3-demo/pitch-demo-combined-final.mp4

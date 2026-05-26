@@ -15,6 +15,7 @@
 **Quick links:**
 [Architecture](./docs/ARCHITECTURE.md) ·
 [Deployment](./docs/DEPLOYMENT.md) ·
+[Demo video](https://github.com/veithly/incidentrm260526/releases/download/v0.0.3-demo/pitch-demo-combined-final.mp4) ·
 [Submission draft](./SUBMISSION.md) ·
 [中文](./docs/zh/README.md)
 

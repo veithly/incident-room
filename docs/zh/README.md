@@ -78,6 +78,7 @@ flowchart LR
 - Devvit app: https://developers.reddit.com/apps/incidentrm260526
 - Playtest subreddit: https://www.reddit.com/r/incidentrm260526_dev
 - GitHub repo: https://github.com/veithly/incidentrm260526
+- Demo video: https://github.com/veithly/incidentrm260526/releases/download/v0.0.3-demo/pitch-demo-combined-final.mp4
 - Architecture: [../ARCHITECTURE.md](../ARCHITECTURE.md)
 - Deployment: [../DEPLOYMENT.md](../DEPLOYMENT.md)
 

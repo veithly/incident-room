@@ -62,4 +62,4 @@ The model never removes, locks, bans, or mutates Reddit state. Human confirmatio
 
 Devpost uses a single project/video flow, so delivery mode is `combined-pitch-demo`.
 
-Implemented deliverables include the Devvit app, screenshots, bilingual docs, submission text, and a local combined pitch/demo render at `pitch/recording/pitch-demo-combined-final.mp4`. Devvit version `0.0.3` has been submitted for Reddit review; final Devpost submission still needs a public video URL accepted by the Devpost form.
+Implemented deliverables include the Devvit app, screenshots, bilingual docs, submission text, and a combined pitch/demo render at `pitch/recording/pitch-demo-combined-final.mp4`. Devvit version `0.0.3` has been submitted for Reddit review. The demo MP4 is also published as a GitHub Release asset for the Devpost video field.
