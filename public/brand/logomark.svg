@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>Incident Room logomark</title>
+  <rect width="64" height="64" rx="8" fill="#2dd4bf"/>
+  <path d="M32 8 52 18v14c0 11.8-7.7 20.5-20 24-12.3-3.5-20-12.2-20-24V18L32 8Z" fill="#07111f"/>
+  <path d="M22 30h20M22 38h14M28 22h8" stroke="#fef3c7" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="45" cy="21" r="5" fill="#fb7185"/>
+</svg>

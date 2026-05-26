@@ -1,0 +1,117 @@
+{
+  "project": "Incident Room",
+  "branch": "AI",
+  "bounty": {
+    "name": "Reddit Mod Tools and Migrated Apps Hackathon",
+    "url": "https://mod-tools-migration.devpost.com/",
+    "category": "Best New Mod Tool",
+    "deadline": "2026-05-27T18:00:00-07:00"
+  },
+  "delivery_mode": "combined-pitch-demo",
+  "runtime": {
+    "platform": "Devvit Web",
+    "reason": "The bounty requires Reddit Developer Platform / Devvit. This overrides the generic Cloudflare-first default.",
+    "appName": "incidentrm260526",
+    "config": "devvit.json"
+  },
+  "ai": {
+    "provider": "stepfun",
+    "useOpenAICompatible": true,
+    "baseURL": "https://api.stepfun.com/v1",
+    "models": {
+      "default": "step-3.6",
+      "briefing": "step-3.6"
+    },
+    "env": {
+      "apiKey": "OPENAI_API_KEY",
+      "baseURL": "OPENAI_BASE_URL",
+      "defaultModel": "OPENAI_DEFAULT_MODEL",
+      "sourceKeyFromUser": "Step AI API key"
+    },
+    "safety": "AI produces a briefing only; destructive Reddit actions require moderator confirmation."
+  },
+  "required_env": [
+    {
+      "name": "OPENAI_API_KEY",
+      "scope": "server",
+      "required_for": "Live incident briefing after a moderator declares an incident",
+      "official_key_url": "https://platform.stepfun.com/",
+      "storage": "Devvit global secret setting openai_api_key or local .env for smoke tests",
+      "status": "available-locally-for-smoke-test"
+    },
+    {
+      "name": "OPENAI_BASE_URL",
+      "scope": "server",
+      "required_for": "OpenAI-compatible endpoint selection",
+      "official_key_url": "https://platform.stepfun.com/docs/guide/openai",
+      "storage": "Devvit global setting openai_base_url or local .env",
+      "status": "defaulted-to-stepfun"
+    },
+    {
+      "name": "OPENAI_DEFAULT_MODEL",
+      "scope": "server",
+      "required_for": "Model selection",
+      "official_key_url": "https://platform.stepfun.com/docs/guide/openai",
+      "storage": "Devvit global setting openai_model or local .env",
+      "status": "defaulted-to-step-3.6"
+    },
+    {
+      "name": "DEVVIT_SUBREDDIT",
+      "scope": "local-dev",
+      "required_for": "devvit playtest target subreddit",
+      "official_key_url": "https://developers.reddit.com/docs/",
+      "storage": ".env or shell env",
+      "status": "developer-provided"
+    }
+  ],
+  "real_data_sources": [
+    {
+      "id": "reddit-triggers",
+      "type": "reddit-event",
+      "source": "Devvit trigger endpoints in devvit.json",
+      "evidence": "onPostSubmit, onCommentSubmit, onPostReport, onCommentReport, and onModAction are wired to server routes."
+    },
+    {
+      "id": "mod-menu",
+      "type": "reddit-menu",
+      "source": "Devvit menu endpoints",
+      "evidence": "Open Incident Room creates/opens the custom post; Send to Incident Room adds evidence."
+    },
+    {
+      "id": "room-state",
+      "type": "redis",
+      "source": "@devvit/web/server redis",
+      "evidence": "store.ts serializes RoomState with evidence, timeline, claims, action packs, and metrics."
+    },
+    {
+      "id": "ai-brief",
+      "type": "api",
+      "source": "OpenAI-compatible /chat/completions",
+      "evidence": "scripts/smoke-ai.mjs validates a live provider response when OPENAI_API_KEY is present."
+    }
+  ],
+  "deploy": {
+    "target": "Devvit App Directory",
+    "commands": [
+      "npm run login",
+      "devvit settings set openai_api_key",
+      "devvit upload",
+      "devvit publish"
+    ],
+    "cloudflare": {
+      "used": false,
+      "reason": "This hackathon requires a Devvit app listing, not a standalone web deployment."
+    }
+  },
+  "verification": {
+    "local": [
+      "npm run type-check",
+      "npm run lint",
+      "npm run test",
+      "npm run build",
+      "npm run test:e2e",
+      "node scripts/smoke-ai.mjs",
+      "node scripts/capture-mockups.mjs"
+    ]
+  }
+}

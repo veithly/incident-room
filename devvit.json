@@ -1,0 +1,123 @@
+{
+  "$schema": "https://developers.reddit.com/schema/config-file.v1.json",
+  "name": "incidentrm260526",
+  "post": {
+    "dir": "dist/client",
+    "entrypoints": {
+      "default": {
+        "inline": true,
+        "entry": "splash.html",
+        "height": "tall"
+      },
+      "command": {
+        "entry": "game.html",
+        "height": "tall"
+      }
+    }
+  },
+  "server": {
+    "dir": "dist/server",
+    "entry": "index.cjs"
+  },
+  "permissions": {
+    "http": {
+      "enable": true,
+      "domains": [
+        "api.stepfun.com",
+        "api.openai.com"
+      ]
+    },
+    "redis": true,
+    "reddit": {
+      "enable": true,
+      "scope": "moderator"
+    }
+  },
+  "settings": {
+    "global": {
+      "openai_api_key": {
+        "type": "string",
+        "label": "OpenAI-compatible API key",
+        "helpText": "Set with devvit settings set openai_api_key. Use a Step AI key for the default step-3.6 briefing model.",
+        "isSecret": true
+      },
+      "openai_base_url": {
+        "type": "string",
+        "label": "OpenAI-compatible base URL",
+        "helpText": "Default: https://api.stepfun.com/v1"
+      },
+      "openai_model": {
+        "type": "string",
+        "label": "OpenAI-compatible model name",
+        "helpText": "Default: step-3.6"
+      }
+    },
+    "subreddit": {
+      "watch_terms": {
+        "type": "paragraph",
+        "label": "Incident watch terms",
+        "helpText": "Comma-separated terms or domains that can seed an incident candidate."
+      },
+      "incident_threshold": {
+        "type": "number",
+        "label": "Incident score threshold",
+        "helpText": "Declare an incident candidate when rule score reaches this value."
+      }
+    }
+  },
+  "triggers": {
+    "onAppInstall": "/internal/triggers/on-app-install",
+    "onPostSubmit": "/internal/triggers/on-post-submit",
+    "onCommentSubmit": "/internal/triggers/on-comment-submit",
+    "onPostReport": "/internal/triggers/on-post-report",
+    "onCommentReport": "/internal/triggers/on-comment-report",
+    "onModAction": "/internal/triggers/on-mod-action"
+  },
+  "menu": {
+    "items": [
+      {
+        "label": "Open Incident Room",
+        "description": "Create or open the moderator incident command center",
+        "location": "subreddit",
+        "forUserType": "moderator",
+        "endpoint": "/internal/menu/open-room"
+      },
+      {
+        "label": "Send to Incident Room",
+        "description": "Add this post or comment to the active incident timeline",
+        "location": [
+          "post",
+          "comment"
+        ],
+        "forUserType": "moderator",
+        "endpoint": "/internal/menu/add-evidence"
+      }
+    ]
+  },
+  "scheduler": {
+    "tasks": {
+      "incident-expiry": {
+        "endpoint": "/internal/scheduler/incident-expiry",
+        "cron": "*/10 * * * *"
+      }
+    }
+  },
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build"
+  },
+  "sourceIgnores": [
+    "pitch/",
+    "docs/ui-mockups/",
+    "docs/zh/",
+    "stack.lock.json",
+    "bounty_brief.md",
+    "SUBMISSION.md",
+    "*.mp4",
+    "*.mp3",
+    "*.webm"
+  ],
+  "dev": {
+    "subreddit": "incidentrm260526_dev"
+  }
+}

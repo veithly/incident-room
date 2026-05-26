@@ -1,0 +1,19 @@
+node_modules/
+dist/
+coverage/
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
+test-results/
+
+# HackathonHunter local-only artifacts
+task_plan.md
+notes.md
+*.mp4
+*.webm
+*.mp3
+*.wav
+*.srt
+*.vtt
