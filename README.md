@@ -8,14 +8,14 @@
 
 *Incident Room turns reports, posts, comments, moderator actions, rule signals, claims, and a bounded AI briefing into one shared custom post. Moderators keep the final call, but the room stops duplicate review and preserves the reason for every decision.*
 
-[![Devvit App](https://img.shields.io/badge/Devvit_App-incidentrm260526-ff4500?style=for-the-badge)](https://developers.reddit.com/apps/incidentrm260526)
-[![Playtest Subreddit](https://img.shields.io/badge/Playtest-r%2Fincidentrm260526__dev-0ea5e9?style=for-the-badge)](https://www.reddit.com/r/incidentrm260526_dev)
+[![Devvit App](https://img.shields.io/badge/Devvit-review_app-ff4500?style=for-the-badge)](https://developers.reddit.com/apps/incidentrm260526)
+[![Playtest Subreddit](https://img.shields.io/badge/Playtest-subreddit-0ea5e9?style=for-the-badge)](https://www.reddit.com/r/incidentrm260526_dev)
 [![License](https://img.shields.io/badge/license-BSD--3--Clause-22c55e?style=for-the-badge)](./LICENSE)
 
 **Quick links:**
 [Architecture](./docs/ARCHITECTURE.md) ·
 [Deployment](./docs/DEPLOYMENT.md) ·
-[Demo video](https://github.com/veithly/incidentrm260526/releases/download/v0.0.3-demo/pitch-demo-combined-final.mp4) ·
+[Demo video](https://github.com/veithly/incident-room/releases/download/v0.0.3-demo/pitch-demo-combined-final.mp4) ·
 [Submission draft](./SUBMISSION.md) ·
 [中文](./docs/zh/README.md)
 
@@ -154,7 +154,7 @@ npm run video:submission
 npx devvit settings list
 ```
 
-The app has been uploaded as `incidentrm260526` with playtest subreddit `r/incidentrm260526_dev`. Devvit version `0.0.3` has been submitted for review. The combined pitch/demo renderer writes `pitch/recording/pitch-demo-combined-final.mp4`; media files are gitignored and can be regenerated with `npm run video:submission`.
+The public repository is `incident-room`. The Devvit review app keeps the already-submitted technical slug `incidentrm260526` with playtest subreddit `r/incidentrm260526_dev`. Devvit version `0.0.3` has been submitted for review. The combined pitch/demo renderer writes `pitch/recording/pitch-demo-combined-final.mp4`; media files are gitignored and can be regenerated with `npm run video:submission`.
 
 ## License
 

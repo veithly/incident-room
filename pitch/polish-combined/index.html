@@ -10,7 +10,7 @@
     h1 { font-size: 44px; margin: 0 0 12px; }
     .meta { color: #b7b0a2; margin-bottom: 28px; font-size: 18px; }
     .chapter { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 24px; align-items: center; padding: 18px 0; border-top: 1px solid rgba(246, 244, 235, 0.16); }
-    img { width: 320px; aspect-ratio: 16 / 10; object-fit: cover; border: 1px solid rgba(246, 244, 235, 0.16); }
+    img, video { width: 320px; aspect-ratio: 16 / 10; object-fit: cover; border: 1px solid rgba(246, 244, 235, 0.16); }
     p { margin: 0 0 8px; color: #5eead4; text-transform: uppercase; }
     h2 { margin: 0 0 12px; font-size: 26px; }
     span { color: #ff8a61; }
@@ -19,69 +19,77 @@
 <body>
   <main>
     <h1>Incident Room combined pitch/demo</h1>
-    <div class="meta">Final render: ../recording/pitch-demo-combined-final.mp4 · 192.23s · 1920x1200</div>
+    <div class="meta">Final render: ../recording/pitch-demo-combined-final.mp4 - 188.41s - 1920x1200 - includes live UI recording</div>
     <article class="chapter" style="--i:0">
-      <img src="../deck-thumbs/01-cold-open.png" alt="" />
+      <img src="../deck-thumbs/01-command-room.png" alt="" />
       <div>
-        <p>Cold open</p>
-        <h2>A subreddit incident should not become five private tabs</h2>
-        <span>22.67s</span>
+        <p>The moderator problem</p>
+        <h2>A live subreddit incident should not become five private tabs</h2>
+        <span>21.35s</span>
       </div>
     </article>
 <article class="chapter" style="--i:1">
-      <img src="../deck-thumbs/02-pressure.png" alt="" />
+      <img src="../deck-thumbs/02-product-frame.png" alt="" />
       <div>
-        <p>Moderator pressure</p>
-        <h2>The risk is duplicated review during the busiest minutes</h2>
-        <span>22.79s</span>
+        <p>Product first</p>
+        <h2>The app opens inside Reddit as a real Devvit command surface</h2>
+        <span>15.64s</span>
       </div>
     </article>
 <article class="chapter" style="--i:2">
-      <img src="../deck-thumbs/03-room-flow.png" alt="" />
+      <video src="../recording/live-demo.mp4" muted playsinline controls></video>
       <div>
-        <p>Live room</p>
-        <h2>Declare, claim, brief, and confirm without leaving Reddit</h2>
-        <span>22.98s</span>
+        <p>Live demo</p>
+        <h2>Declare, claim, brief, preview, confirm</h2>
+        <span>42.27s</span>
       </div>
     </article>
 <article class="chapter" style="--i:3">
-      <img src="../deck-thumbs/04-ai-briefing.png" alt="" />
+      <img src="../deck-thumbs/04-rules-ai.png" alt="" />
       <div>
         <p>Rules plus AI</p>
-        <h2>Rules score the evidence; Step AI explains the shape of the incident</h2>
-        <span>29.51s</span>
+        <h2>Rules score evidence; Step AI explains what the room is seeing</h2>
+        <span>19.5s</span>
       </div>
     </article>
 <article class="chapter" style="--i:4">
-      <img src="../deck-thumbs/05-mobile.png" alt="" />
+      <img src="../deck-thumbs/05-architecture.png" alt="" />
       <div>
-        <p>QR first run</p>
-        <h2>The same incident room works from a phone scan</h2>
-        <span>19.91s</span>
+        <p>Technical proof</p>
+        <h2>Devvit events, Redis room state, Reddit permissions, and server-side AI</h2>
+        <span>17.08s</span>
       </div>
     </article>
 <article class="chapter" style="--i:5">
-      <img src="../deck-thumbs/06-architecture.png" alt="" />
+      <img src="../deck-thumbs/06-mobile-proof.png" alt="" />
       <div>
-        <p>Technical proof</p>
-        <h2>Devvit events, Redis state, Reddit permissions, and server-side AI</h2>
-        <span>26.2s</span>
+        <p>Phone check</p>
+        <h2>A QR scan does not open a shrunken desktop dashboard</h2>
+        <span>12.71s</span>
       </div>
     </article>
 <article class="chapter" style="--i:6">
-      <img src="../deck-thumbs/07-review-status.png" alt="" />
+      <img src="../deck-thumbs/07-proof-links.png" alt="" />
       <div>
         <p>Submission proof</p>
         <h2>Built, tested, uploaded, and submitted for Devvit review</h2>
-        <span>28.74s</span>
+        <span>18.95s</span>
       </div>
     </article>
 <article class="chapter" style="--i:7">
-      <img src="../deck-thumbs/08-outro.png" alt="" />
+      <img src="../deck-thumbs/08-submit-ready.png" alt="" />
       <div>
-        <p>Try the first action</p>
-        <h2>Open the playtest subreddit and declare the first incident room</h2>
-        <span>19.43s</span>
+        <p>Judge path</p>
+        <h2>The reviewer can inspect the product, code, video, and moderation boundary</h2>
+        <span>28.91s</span>
+      </div>
+    </article>
+<article class="chapter" style="--i:8">
+      <img src="../deck-thumbs/09-outro.png" alt="" />
+      <div>
+        <p>Try it</p>
+        <h2>Open the room, declare the incident, and watch the handoff stay readable</h2>
+        <span>12s</span>
       </div>
     </article>
   </main>
