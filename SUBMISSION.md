@@ -5,6 +5,8 @@
 - Devvit app slug: `incidentrm260526`
 - Devvit app listing: https://developers.reddit.com/apps/incidentrm260526
 - Playtest subreddit: https://www.reddit.com/r/incidentrm260526_dev
+- Public repository: https://github.com/veithly/incidentrm260526
+- Devvit review status: version `0.0.3` submitted for review on May 26, 2026.
 - Secret settings configured:
   - `openai_api_key` as a Devvit secret
   - `openai_base_url` = `https://api.stepfun.com/v1`
@@ -47,11 +49,17 @@ The main time saving is not one removed click. It is preventing five moderators 
 
 - Built with Devvit Web, React, Hono, Redis, Reddit API permissions, server-side HTTP, and Playwright.
 - AI provider is Step AI `step-3.6` through StepFun's OpenAI-compatible endpoint and can be changed with Devvit settings.
+- Combined pitch/demo video rendered locally at `pitch/recording/pitch-demo-combined-final.mp4`:
+  - 1920x1200
+  - 3:12 runtime
+  - StepAudio `stepaudio-2.5-tts` narration
+  - sidechained background music
+  - captions at `pitch/recording/pitch-demo-combined-final.srt`
 - Local verification commands are listed in `README.md` and `docs/DEPLOYMENT.md`.
 
-## Links to fill after account actions
+## Submission links
 
 - App listing URL: https://developers.reddit.com/apps/incidentrm260526
 - Playtest subreddit: https://www.reddit.com/r/incidentrm260526_dev
-- Demo video URL: pending final upload
-- Public repository URL: pending final repository push
+- Public repository URL: https://github.com/veithly/incidentrm260526
+- Demo video URL: pending public upload; local MP4 is ready at `pitch/recording/pitch-demo-combined-final.mp4`.

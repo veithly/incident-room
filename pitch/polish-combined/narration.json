@@ -1,0 +1,124 @@
+{
+  "generated_at": "2026-05-26T16:39:17.721Z",
+  "composition": "combined-pitch-demo",
+  "size": {
+    "width": 1920,
+    "height": 1200
+  },
+  "tts": {
+    "provider": "StepFun OpenAI-compatible audio speech",
+    "model": "stepaudio-2.5-tts",
+    "voice": "cixingnansheng",
+    "instruction": "Confident, calm hackathon narration. Native English product names. Slightly slower than chat."
+  },
+  "video": {
+    "output": "pitch/recording/pitch-demo-combined-final.mp4",
+    "duration_seconds": 192.23
+  },
+  "chapters": [
+    {
+      "id": "01-cold-open",
+      "type": "image",
+      "source": "docs/screenshots/hero.png",
+      "kicker": "Cold open",
+      "title": "A subreddit incident should not become five private tabs",
+      "body": "Incident Room gives moderators one shared command room before a heated thread turns into shift-by-shift guesswork.",
+      "narration": "A subreddit incident does not wait for a meeting. A live sports thread, a game launch, or a finance discussion can turn hostile while moderators are still comparing notes in separate tabs. Incident Room turns that spike into one shared room, with evidence, claims, deterministic rules, and a bounded AI briefing in the same place.",
+      "plate": "pitch/deck-thumbs/01-cold-open.png",
+      "audio": "pitch/audio/01-cold-open.mp3",
+      "duration_seconds": 22.67,
+      "segment": "pitch/recording/01-cold-open.mp4"
+    },
+    {
+      "id": "02-pressure",
+      "type": "slide",
+      "kicker": "Moderator pressure",
+      "title": "The risk is duplicated review during the busiest minutes",
+      "body": "Five moderators can read the same reports, miss the same hostile pattern, or act without knowing who already claimed the next item.",
+      "stat": "One room replaces scattered context",
+      "narration": "The painful part is not a missing button. It is duplicated review during the busiest minutes. One moderator reads the first report, another checks the same author, and a third takes action without seeing the earlier reason. Incident Room shows who claimed evidence, why an item was scored, and which pattern is gaining speed before the team loses the thread.",
+      "plate": "pitch/deck-thumbs/02-pressure.png",
+      "audio": "pitch/audio/02-pressure.mp3",
+      "duration_seconds": 22.79,
+      "segment": "pitch/recording/02-pressure.mp4"
+    },
+    {
+      "id": "03-room-flow",
+      "type": "image",
+      "source": "docs/screenshots/flow.png",
+      "kicker": "Live room",
+      "title": "Declare, claim, brief, and confirm without leaving Reddit",
+      "body": "The custom post acts like a war-room surface for the incident, not a spreadsheet outside the moderation flow.",
+      "narration": "The moderator declares an incident from Reddit. Evidence enters a custom post, claims become visible to the team, and the room keeps the decision trail where the next moderator can find it. The workflow is intentionally direct: declare the room, claim the next evidence item, review the briefing, preview the action pack, and confirm the human decision.",
+      "plate": "pitch/deck-thumbs/03-room-flow.png",
+      "audio": "pitch/audio/03-room-flow.mp3",
+      "duration_seconds": 22.98,
+      "segment": "pitch/recording/03-room-flow.mp4"
+    },
+    {
+      "id": "04-ai-briefing",
+      "type": "image",
+      "source": "docs/ui-mockups/03-briefing-action-pack.png",
+      "kicker": "Rules plus AI",
+      "title": "Rules score the evidence; Step AI explains the shape of the incident",
+      "body": "The model summarizes likely pattern, safest action pack to review, and caveats. It cannot mutate Reddit content.",
+      "narration": "The AI layer is deliberately bounded. Deterministic rules score watch terms, report velocity, repeated domains, and fresh accounts, because those signals must be explainable under pressure. Step three point six then writes a compact briefing: what appears to be happening, which action pack is safest to review, and which caveats should stay in front of the moderator. The model cannot remove, lock, ban, or mutate Reddit content.",
+      "plate": "pitch/deck-thumbs/04-ai-briefing.png",
+      "audio": "pitch/audio/04-ai-briefing.mp3",
+      "duration_seconds": 29.51,
+      "segment": "pitch/recording/04-ai-briefing.mp4"
+    },
+    {
+      "id": "05-mobile",
+      "type": "image",
+      "source": "docs/screenshots/mobile.png",
+      "kicker": "QR first run",
+      "title": "The same incident room works from a phone scan",
+      "body": "Judges and moderators can inspect the flow from mobile without landing on a shrunken desktop dashboard.",
+      "narration": "The mobile view keeps the first run usable from a QR scan. That matters for judges, but it also matters for real moderators who check an incident away from the main desk. The layout keeps the incident state, the briefing, and the next review action reachable without shrinking a dense desktop dashboard into a phone viewport.",
+      "plate": "pitch/deck-thumbs/05-mobile.png",
+      "audio": "pitch/audio/05-mobile.mp3",
+      "duration_seconds": 19.91,
+      "segment": "pitch/recording/05-mobile.mp4"
+    },
+    {
+      "id": "06-architecture",
+      "type": "image",
+      "source": "docs/screenshots/architecture.png",
+      "kicker": "Technical proof",
+      "title": "Devvit events, Redis state, Reddit permissions, and server-side AI",
+      "body": "Secrets stay server-side. Reddit actions stay explicit. The app can be reviewed from code, tests, and deployed Devvit settings.",
+      "narration": "Under the hood, Devvit triggers ingest posts, comments, reports, and mod actions. Redis stores the timeline, claims, briefing state, and after action metrics. The OpenAI compatible StepFun endpoint runs server side with a Devvit secret, and the app keeps the Reddit permission boundary clear: AI explains the incident, moderators perform the action.",
+      "plate": "pitch/deck-thumbs/06-architecture.png",
+      "audio": "pitch/audio/06-architecture.mp3",
+      "duration_seconds": 26.2,
+      "segment": "pitch/recording/06-architecture.mp4"
+    },
+    {
+      "id": "07-review-status",
+      "type": "slide",
+      "kicker": "Submission proof",
+      "title": "Built, tested, uploaded, and submitted for Devvit review",
+      "body": "The public repository includes the PRD, architecture, deployment notes, screenshots, tests, and source-code review bundle status.",
+      "stat": "Devvit version 0.0.3 submitted",
+      "narration": "The project is not a mock surface. The repository includes the app, tests, bilingual product docs, UI evidence, legal pages, and a Devvit publish request for version zero point zero point three. The local checks cover TypeScript, lint, unit tests, Vite build, Playwright desktop and mobile flows, and a live StepFun AI smoke test. The review bundle is ready for judges to inspect.",
+      "plate": "pitch/deck-thumbs/07-review-status.png",
+      "audio": "pitch/audio/07-review-status.mp3",
+      "duration_seconds": 28.74,
+      "segment": "pitch/recording/07-review-status.mp4"
+    },
+    {
+      "id": "08-outro",
+      "type": "slide",
+      "kicker": "Try the first action",
+      "title": "Open the playtest subreddit and declare the first incident room",
+      "body": "Incident Room is built for moderators who need shared context fast, but still want every enforcement action to stay human-reviewed.",
+      "stat": "Repo, tests, and Devvit app are linked",
+      "narration": "The fastest way to evaluate Incident Room is to open the playtest subreddit, start the custom post, and declare the first incident room. The visible proof is in the product flow, the public repository, the tests, and the Devvit app listing submitted for review.",
+      "plate": "pitch/deck-thumbs/08-outro.png",
+      "audio": "pitch/audio/08-outro.mp3",
+      "duration_seconds": 19.43,
+      "segment": "pitch/recording/08-outro.mp4"
+    }
+  ]
+}

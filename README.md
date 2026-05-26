@@ -149,10 +149,11 @@ npm run verify
 npm run test:e2e
 node scripts/capture-mockups.mjs
 node scripts/smoke-ai.mjs
+npm run video:submission
 npx devvit settings list
 ```
 
-The app has been uploaded as `incidentrm260526` with playtest subreddit `r/incidentrm260526_dev`.
+The app has been uploaded as `incidentrm260526` with playtest subreddit `r/incidentrm260526_dev`. Devvit version `0.0.3` has been submitted for review. The combined pitch/demo renderer writes `pitch/recording/pitch-demo-combined-final.mp4`; media files are gitignored and can be regenerated with `npm run video:submission`.
 
 ## License
 

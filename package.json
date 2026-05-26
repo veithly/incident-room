@@ -15,7 +15,8 @@
     "test": "vitest run",
     "test:e2e": "playwright test",
     "type-check": "tsc --build",
-    "verify": "npm run type-check && npm run lint && npm run test && npm run build"
+    "verify": "npm run type-check && npm run lint && npm run test && npm run build",
+    "video:submission": "node scripts/create-submission-video.mjs"
   },
   "engines": {
     "node": ">=22.2.0"
